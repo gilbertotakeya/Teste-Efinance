@@ -116,7 +116,7 @@ namespace EfinanceTeste.Controllers
                 //ViewData["Endereco"] = _Endereco_Repositorio.GerarSelectList(model.IdEndereco);
                 return View(model);
             }
-            catch(Exception)
+            catch(Exception ex)
             {
                 TempData["msgDanger"] = ex.Message;
                 return View(model);

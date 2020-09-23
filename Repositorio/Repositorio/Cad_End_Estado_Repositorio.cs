@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -22,7 +23,7 @@ namespace Repositorio
         {
             try
             {
-                var lista = await _context.Cad_End_Estado.ToListAsync();
+                var lista = await _context.Cad_End_Estado.Where(w=> !w.DataExclusao.HasValue).ToListAsync();
                 return lista;
             }
             catch (Exception e)
@@ -61,6 +62,7 @@ namespace Repositorio
         {
             try
             {
+                modelo.DataInclusao = DateTime.Now;
                 _context.Add(modelo);
                 await _context.SaveChangesAsync();
                 return modelo;
@@ -76,7 +78,7 @@ namespace Repositorio
             try
             {
                 _context.Update(modelo);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
                 return modelo;
             }
             catch (Exception e)
@@ -89,7 +91,9 @@ namespace Repositorio
         {
             try
             {
-                _context.Cad_End_Estado.Remove(modelo);
+                modelo.DataExclusao = DateTime.Now;
+                _context.Update(modelo);
+                //_context.Cad_End_Estado.Remove(modelo);
                 await _context.SaveChangesAsync();
                 return true;
             }
