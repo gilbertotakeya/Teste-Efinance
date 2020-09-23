@@ -1,0 +1,27 @@
+﻿@model Classes.Cli_Cliente
+
+@{
+    ViewData["Title"] = "Incluir Cliente";
+}
+
+<h4>Cadastrar Cliente</h4>
+<hr />
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <partial name="_Formulario" />
+
+    <div class="form-group">
+        <input type="submit" value="Salvar" class="btn btn-primary" />
+    </div>
+</form>
+<div>
+    <a asp-action="Index">Voltar para listagem</a>
+</div>
+
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

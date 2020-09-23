@@ -1,0 +1,51 @@
+﻿@if (TempData.Count > 0)
+{
+    if (TempData["msgSuccess"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["msgSuccess"]
+        </div>
+    }
+
+    if (TempData["msgDanger"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["msgDanger"]
+        </div>
+    }
+
+    if (TempData["msgWarning"] != null)
+    {
+        <div class="alert alert-warning">
+            @TempData["msgWarning"]
+        </div>
+    }
+
+    if (TempData["msgInfo"] != null)
+    {
+        <div class="alert alert-info">
+            @TempData["msgInfo"]
+        </div>
+    }
+
+    if (TempData["msgInverse"] != null)
+    {
+        <div class="alert alert-default">
+            @TempData["msgInverse"]
+        </div>
+    }
+}
+
+<script>
+
+    window.onload = setTimeout(init, 1000);
+
+    function init() {
+        $('.alert-success').fadeTo("slow", 0.00, function () { //fade
+            $(this).slideUp("slow", function () { //slide up
+                $(this).remove(); //then remove from the DOM
+            });
+        });
+    }
+
+</script>

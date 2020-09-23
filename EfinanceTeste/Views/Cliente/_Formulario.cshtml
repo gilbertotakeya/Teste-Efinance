@@ -1,0 +1,212 @@
+﻿@model Classes.Cli_Cliente
+
+<input type="hidden" asp-for="Id" />
+<input type="hidden" asp-for="DataInclusao" />
+<input type="hidden" asp-for="DataExclusao" />
+
+<input type="hidden" asp-for="EnderecoId" />
+<input type="hidden" asp-for="Endereco.Id" />
+
+<input type="hidden" asp-for="CidadeId" />
+<input type="hidden" asp-for="Endereco.CidadeId" />
+<input type="hidden" asp-for="Endereco.Cidade.Id" />
+
+<input type="hidden" asp-for="EstadoId" />
+<input type="hidden" asp-for="Estado.Id" />
+
+<input type="hidden" asp-for="Endereco.EstadoId" />
+
+<div class="panel panel-primary" data-collapsed="0">
+    <div class="panel-body">
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <label asp-for="Nome" class="control-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>                
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label asp-for="CPF" class="control-label"></label>
+                    <input asp-for="CPF" class="form-control CPF" />
+                    <span asp-validation-for="CPF" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-2">
+                    <label asp-for="RG" class="control-label"></label>
+                    <input asp-for="RG" class="form-control" />
+                    <span asp-validation-for="RG" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="DataNascimento" class="control-label"></label>
+                    <input asp-for="DataNascimento" class="form-control" />
+                    <span asp-validation-for="DataNascimento" class="text-danger"></span>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="NomeSocial" class="control-label"></label>
+                    <input asp-for="NomeSocial" class="form-control" />
+                    <span asp-validation-for="NomeSocial" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <label asp-for="NumeroTelefone" class="control-label"></label>
+                    <input asp-for="NumeroTelefone" class="form-control Celular" />
+                    <span asp-validation-for="NumeroTelefone" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-4">
+                    <label asp-for="NumeroTelefone2" class="control-label"></label>
+                    <input asp-for="NumeroTelefone2" class="form-control Celular" />
+                    <span asp-validation-for="NumeroTelefone2" class="text-danger"></span>
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="Observacao" class="control-label"></label>
+                    <input asp-for="Observacao" class="form-control" />
+                    <span asp-validation-for="Observacao" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label asp-for="Endereco.CEP" class="control-label"></label>
+                    <input asp-for="Endereco.CEP" class="form-control CEP" />
+                    <span asp-validation-for="Endereco.CEP" class="text-danger"></span>
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="Endereco.Endereco" class="control-label"></label>
+                    <input asp-for="Endereco.Endereco" class="form-control" readonly="readonly" />
+                    <span asp-validation-for="Endereco.Endereco" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-2">
+                    <label asp-for="Endereco.Bairro" class="control-label"></label>
+                    <input asp-for="Endereco.Bairro" class="form-control" readonly="readonly" />
+                    <span asp-validation-for="Endereco.Bairro" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-2">
+                    <label asp-for="Endereco.Cidade.Nome" class="control-label"></label>
+                    <input asp-for="Endereco.Cidade.Nome" class="form-control" readonly="readonly" />
+                    <span asp-validation-for="Endereco.Cidade.Nome" class="text-danger"></span>
+                </div>
+                <div class="col-md-2">
+                    <label asp-for="Estado.Sigla" class="control-label"></label>
+                    <input asp-for="Estado.Sigla" class="form-control" readonly="readonly" />
+                    <span asp-validation-for="Estado.Sigla" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <label asp-for="Numero" class="control-label"></label>
+                    <input asp-for="Numero" class="form-control" />
+                    <span asp-validation-for="Numero" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-5">
+                    <label asp-for="Complemento" class="control-label"></label>
+                    <input asp-for="Complemento" class="form-control" />
+
+                    <span asp-validation-for="Complemento" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="Endereco.CodigoIBGE" class="control-label"></label>
+                    <input asp-for="Endereco.CodigoIBGE" class="form-control" readonly="readonly" />
+                    <span asp-validation-for="Endereco.CodigoIBGE" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<!-- Adicionando JQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+
+<!-- Adicionando Javascript -->
+<script>
+    $(function () {
+        $(".CPF").mask("999.999.999-99");
+        $(".Celular").mask("(99)99999-999?9");
+        $(".CEP").mask("99999-999");
+        $('.hora').mask('99:99');
+        $(".telefone").mask("(99) 9999-9999?9");
+    });
+
+    $(document).ready(function () {
+
+        function limpa_formulário_cep() {
+            // Limpa valores do formulário de cep.
+            $("#Endereco_Endereco").val("");
+            $("#Endereco_Bairro").val("");
+            $("#Endereco_Cidade_Nome").val("");
+            $("#Estado_Sigla").val("");
+            $("#Endereco_CodigoIBGE").val("");
+        }
+
+        //Quando o campo cep perde o foco.
+        $("#Endereco_CEP").blur(function () {
+
+            //Nova variável "cep" somente com dígitos.
+            var cep = $(this).val().replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    $("#Endereco_Endereco").val("...");
+                    $("#Endereco_Bairro").val("...");
+                    $("#Endereco_Cidade_Nome").val("...");
+                    $("#Estado_Sigla").val("...");
+                    $("#Endereco_CodigoIBGE").val("...");
+
+                    //Consulta o webservice viacep.com.br/
+                    $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+
+                        if (!("erro" in dados)) {
+                            //Atualiza os campos com os valores da consulta.
+                            $("#Endereco_Endereco").val(dados.logradouro);
+                            $("#Endereco_Bairro").val(dados.bairro);
+                            $("#Endereco_Cidade_Nome").val(dados.localidade);
+                            $("#Estado_Sigla").val(dados.uf);
+                            $("#Endereco_CodigoIBGE").val(dados.ibge);
+
+                            console.log(dados.ibge);
+                        } //end if.
+                        else {
+                            //CEP pesquisado não foi encontrado.
+                            limpa_formulário_cep();
+                            alert("CEP não encontrado.");
+                        }
+                    });
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        });
+    });
+
+</script>
