@@ -97,6 +97,8 @@ namespace EfinanceTeste.Controllers
                 ModelState.Remove("Endereco.EstadoId");
                 ModelState.Remove("Endereco.Cidade.Id");
                 ModelState.Remove("Endereco.EstadoId");
+                ModelState.Remove("Estado.Nome");
+                ModelState.Remove("Endereco.Cidade.CodigoIBGE");
 
                 if (ModelState.IsValid)
                 {
@@ -149,6 +151,8 @@ namespace EfinanceTeste.Controllers
                 ModelState.Remove("Endereco.EstadoId");
                 ModelState.Remove("Endereco.Cidade.Id");
                 ModelState.Remove("Endereco.EstadoId");
+                ModelState.Remove("Estado.Nome");
+                ModelState.Remove("Endereco.Cidade.CodigoIBGE");
 
                 if (ModelState.IsValid)
                 {
