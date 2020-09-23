@@ -22,7 +22,21 @@ namespace Repositorio
         {
             try
             {
-                var lista = await _context.Cad_End_Cidade.ToListAsync();
+                var lista = await _context.Cad_End_Cidade.Include(f => f.Estado).ToListAsync();
+                return lista;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public async Task<List<Cad_End_Cidade>> ListarCidadeAsync(string pesquisaCidade)
+        {
+            try
+            {
+                var lista = await _context.Cad_End_Cidade
+                                          .Where(f=> f.Nome.ToUpper().Contains(pesquisaCidade.ToUpper()))
+                                          .Include(f => f.Estado).ToListAsync();
                 return lista;
             }
             catch (Exception e)
@@ -65,6 +79,7 @@ namespace Repositorio
         {
             try
             {
+                modelo.DataInclusao = DateTime.Now;
                 _context.Add(modelo);
                 await _context.SaveChangesAsync();
                 return modelo;
@@ -103,14 +118,15 @@ namespace Repositorio
             }
         }
 
-        public SelectList GerarSelectList(int? Id)
+        public List<SelectListItem> GerarSelectList(int? Id)
         {
-            SelectList listagem = new SelectList(_context.Cad_End_Cidade, "Id", "Nome");
-
-            if (Id.HasValue)
-            {
-                listagem = new SelectList(_context.Cad_End_Cidade, "Id", "Nome", Id);
-            }
+            var listagem = _context.Cad_End_Cidade
+                                   .Select(c => new SelectListItem()
+                                                { 
+                                                    Text = c.Nome, 
+                                                    Value = c.Id.ToString() 
+                                                })
+                                   .ToList();
 
             return listagem;
         }

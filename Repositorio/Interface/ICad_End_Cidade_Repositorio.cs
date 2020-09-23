@@ -11,6 +11,8 @@ namespace Repositorio
     public interface ICad_End_Cidade_Repositorio
     {
         Task<List<Cad_End_Cidade>> ListarAsync();
+        
+        Task<List<Cad_End_Cidade>> ListarCidadeAsync(string pesquisaCidade);
 
         Task<Cad_End_Cidade> ObterAsync(int Id);
 
@@ -22,6 +24,7 @@ namespace Repositorio
 
         Task<bool> DeletarAsync(Cad_End_Cidade modelo);
 
-        SelectList GerarSelectList(int? Id);
+        //SelectListItem GerarSelectList(int? Id);
+        List<SelectListItem> GerarSelectList(int? Id);
     }
 }

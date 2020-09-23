@@ -6,7 +6,7 @@
     ViewData["Title"] = "Listagem";
 }
 
-<h1>Listagem</h1>
+<h1>Clientes cadastrados</h1>
 
 <p>
     <a class="btn btn-info" asp-action="Create"><i class="fas fa-plus"></i> Adicionar novo</a>
@@ -59,7 +59,6 @@
             </td>
             <td>
                 <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
-                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info"></i></a>
                 <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i></a>
             </td>
         </tr>

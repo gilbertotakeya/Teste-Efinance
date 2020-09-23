@@ -1,16 +1,22 @@
 ﻿@using Classes;
 
-@model IEnumerable<Cad_End_Estado>
+@model IEnumerable<Cad_End_Cidade>
 
 @{
     ViewData["Title"] = "Listagem";
 }
 
-<h1>Estados cadastrados</h1>
+<h1>Cidades cadastrados</h1>
 
 <p>
     <a class="btn btn-info" asp-action="Create"><i class="fas fa-plus"></i>Adicionar novo</a>
 </p>
+<form asp-controller="Cidade" asp-action="Index" method="get">
+    <p>
+        Pesquisa por cidade: <input type="text" name="PesquisaCidade" />
+        <input type="submit" value="Filtrar" />
+    </p>
+</form>
 <table class="table table-striped">
     <thead class="thead-dark">
         <tr>
@@ -18,7 +24,7 @@
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Sigla)
+                @Html.DisplayNameFor(model => model.Estado.Sigla)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DataInclusao)
@@ -35,7 +41,7 @@
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Sigla)
+                    @Html.DisplayFor(modelItem => item.Estado.Sigla)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DataInclusao)
