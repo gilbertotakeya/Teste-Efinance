@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Repositorio;
+using X.PagedList;
 
 namespace EfinanceTeste.Controllers
 {
@@ -25,7 +26,6 @@ namespace EfinanceTeste.Controllers
 
         public async Task<IActionResult> Index(string PesquisaCidade = "")
         {
-
             if (!string.IsNullOrEmpty(PesquisaCidade))
             {
                 var lista = await _Cidade_Repositorio.ListarCidadeAsync(PesquisaCidade);

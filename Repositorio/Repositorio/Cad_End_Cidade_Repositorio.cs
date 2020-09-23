@@ -95,7 +95,7 @@ namespace Repositorio
             try
             {
                 _context.Update(modelo);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
                 return modelo;
             }
             catch (Exception e)
